@@ -1,11 +1,16 @@
 import './userInfo.css';
+import {useUserStore} from "../../../lib/userStore.js";
 
 function UserInfo() {
+    const { currentUser, isLoading, fetchUserInfo }  = useUserStore();
+
+
+
     return (
         <div className='userInfo'>
             <div className='user'>
-                <img src='./avatar.png' alt=''/>
-                <h2>Jone Doe</h2>
+                <img src={currentUser.avatar || './avatar.png'} alt=''/>
+                <h2>{currentUser.username}</h2>
             </div>
             <div className='icons'>
                 <img src="./more.png" alt=""/>
